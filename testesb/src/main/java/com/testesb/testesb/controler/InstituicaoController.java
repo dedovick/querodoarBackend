@@ -8,6 +8,8 @@ import com.testesb.testesb.service.IInstituicaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,5 +57,10 @@ public class InstituicaoController {
         instituicaoRepository.save(instituicao);
 
         return instituicao.getNome() + " - " + instituicao.getEndereco();
+    }
+
+    @PostMapping("/insertInstituicao")
+    public Instituicao insertInstituicao(@RequestBody Instituicao instituicao){
+        return instituicaoRepository.save(instituicao);
     }
 }
