@@ -61,6 +61,7 @@ public class InstituicaoController {
 
     @PostMapping("/insertInstituicao")
     public Instituicao insertInstituicao(@RequestBody Instituicao instituicao){
+        System.out.println("Passou aqui caraaaaaai: " + instituicao.getTelefone());
         return instituicaoRepository.save(instituicao);
     }
 }
