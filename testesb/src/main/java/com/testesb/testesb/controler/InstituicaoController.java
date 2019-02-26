@@ -24,6 +24,7 @@ public class InstituicaoController {
 
     @GetMapping("/instituicoes")
     public List<Instituicao> getInstituicoes() {
+        System.out.println("Passou aqui aooooooooooooooooo");
         List<Instituicao> instituicoes = (List<Instituicao>) this.instituicaoService.findAll();
         return instituicoes;
     }
