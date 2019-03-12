@@ -7,6 +7,7 @@ import com.testesb.testesb.repository.InstituicaoRepository;
 import com.testesb.testesb.service.IInstituicaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,8 @@ public class InstituicaoController {
     @Autowired
     InstituicaoRepository instituicaoRepository;
 
+
+    @CrossOrigin(origins = "/**")
     @GetMapping("/instituicoes")
     public List<Instituicao> getInstituicoes() {
         System.out.println("Passou aqui aooooooooooooooooo");
@@ -29,6 +32,7 @@ public class InstituicaoController {
         return instituicoes;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/inseririnstituicao")
     public String createInstituicao(
                 @RequestParam String nome, 
@@ -60,6 +64,7 @@ public class InstituicaoController {
         return instituicao.getNome() + " - " + instituicao.getEndereco();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/insertInstituicao")
     public Instituicao insertInstituicao(@RequestBody Instituicao instituicao){
         System.out.println("Passou aqui caraaaaaai: " + instituicao.getTelefone());
